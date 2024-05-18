@@ -110,7 +110,39 @@ public static class GameMethods{
 
 
     private static void PreFight() {
-        
+        Console.WriteLine("you reluctantly walk into the dark forest surrounding the tower. On your way, you find various apples hanging from tree, fresh, unplucked and glistening with magic.");
+        Console.WriteLine("Inside a rock, you also notice a pristine dagger dug deep inside a tree, it also looks practically untouched.");
+        Console.WriteLine("1. Take the dagger");
+        Console.WriteLine("2. Take the apples");
+        Console.WriteLine("3. Take both");
+        Console.WriteLine("4. Leave both");
+        Console.WriteLine("What will you do?: ");
+        string choice = Console.ReadLine();
+
+        switch (choice){
+            case "1":
+                hasdagger = true;
+                Console.WriteLine($"{princessName} picks up the pristine dagger, leaving the magic apples alone.");
+                break;
+
+            case "2":
+                hasapples = true;
+                Console.WriteLine($"{princessName} picks up the magic apples, leaving the pristine dagger alone.");
+                break;
+            
+            case "3":
+                hasdagger = true;
+                hasapples = true;
+                Console.WriteLine($"{princessName} picks up both items, stuffing her pockets full.");
+                break;
+            case "4":
+                Console.WriteLine($"{princessName} leaves both items, too focused on her way out to take up a good offer, apparently.");
+                break;
+            default:
+                Console.WriteLine("I'm starting to get tired of this.. The princess stood still pondering for so long she no longer had the time to pick anything.");
+                break;   
+        }
+    
     }
 
     private static void Dragonfight(){
