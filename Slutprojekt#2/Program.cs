@@ -9,7 +9,7 @@ namespace PrincessGame
 
             while (gamerunning)
             {
-                gamerunning = GameMethods();
+                gamerunning = GameMethods.StartGame();
             }
         }
         

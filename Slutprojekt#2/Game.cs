@@ -6,8 +6,8 @@ public static class GameMethods{
     private static string princessName;
     private static int princessHP = 100;
     private static int dragonHP = 100;
-
-
+    private static bool hasdagger = false;
+    private static bool hasapples = false;
 
     private static void Intro(){
         Console.WriteLine("In a cold and desolate stone tower, you reside, alone and shivering.");
@@ -109,7 +109,7 @@ public static class GameMethods{
     }
 
 
-    private static void PreFight() {
+    public static void PreFight() {
         Console.WriteLine("you reluctantly walk into the dark forest surrounding the tower. On your way, you find various apples hanging from tree, fresh, unplucked and glistening with magic.");
         Console.WriteLine("Inside a rock, you also notice a pristine dagger dug deep inside a tree, it also looks practically untouched.");
         Console.WriteLine("1. Take the dagger");
