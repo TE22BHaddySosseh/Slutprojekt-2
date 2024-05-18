@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.CompilerServices;
 
 public static class GameMethods{
 
@@ -24,9 +25,9 @@ public static class GameMethods{
     public static void EscapeTower(){
         Console.WriteLine("Looking around, you spot three ways to get out.");  
         
-        Console.WriteLine("1. Knock over the giant metal door.");
-        Console.WriteLine("2. Try to reach the window on the ceiling.");
-        Console.WriteLine("3. Find a weakness in the wall cracks.");
+        Console.WriteLine("1. Knock over the giant metal door");
+        Console.WriteLine("2. Try to reach the window on the ceiling");
+        Console.WriteLine("3. Find a weakness in the wall cracks");
 
         Console.WriteLine("What will you do?: ");
         string choice = Console.ReadLine();
@@ -46,14 +47,16 @@ public static class GameMethods{
     }
 
     private static void Breakdoor(){
+        princessHP -= 5;
         Console.WriteLine("You first notice the big metal door blocking your way down into the staircase of the tower.  Its large and imposing, making you feel like an ant compared to its great height and width.");
         Console.WriteLine("You run towards it at full speed, hoping it'll fall over from your mighty shove. Instead, you injure yourself.");
-        Console.WriteLine($"{princessName} takes 15 damage! HP: {princessHP}");
+        Console.WriteLine($"{princessName} takes 5 damage! HP: {princessHP}");
 
         EscapeTower();
 
         if (princessHP <= 0){
             Console.WriteLine($"Your frail body collapses to the floor after injuring yoruself to the farthest degree. This is your last chapter, Princess {princessName}");
+            Console.ReadLine();
             return;
         }
         
@@ -69,26 +72,58 @@ public static class GameMethods{
         Console.WriteLine("You use your elbow to hit the wall in its weak spot, making the rest of the stones crumble with it, exposing the outside.");
         Console.WriteLine("You finally have a use for the rope you were tied up with! or you could simply risk it, and jump down?");
 
+        Console.WriteLine("1. Use a rope");
+        Console.WriteLine("2. Jump");
         Console.WriteLine("What will you do?: ");
         string choice = Console.ReadLine();
 
         if (choice == "1"){
-            Console.WriteLine($"");
+            Console.WriteLine("Sensibly, you use the rope and get down safely to continue on your journey.");
         }
+
+        else if (choice == "2"){
+            Random jump = new Random();
+            int jumpchance = jump.Next(1, 101);
+
+            if (jumpchance <= 60){
+                int dmg = 30;
+                princessHP -= dmg;
+                Console.WriteLine("Instead of taking the safe way down for whatever reeason, you leap down and land on your feet, injuring your ankles.");
+                Console.WriteLine($"{princessName} takes 30 damage! HP: {princessHP}");
+            }
+
+            if (princessHP <= 0){
+                Console.WriteLine($"Your frail body collapses to the floor after injuring yoruself to the farthest degree. This is your last chapter, Princess {princessName}");
+                Console.ReadLine();
+                return;
+            }
+
+            else{
+                Console.WriteLine("You jump down safely depsite all odds.. hm, lucky you!");
+            }
+        }
+
+        else {
+            Console.WriteLine("Whatever, don't take this seriously then. I'll choose for you. You take the rope!");
+        }
+    }
+
+
+    private static void PreFight() {
+        
     }
 
     private static void Dragonfight(){
 
         while (princessHP > 0 && dragonHP > 0)
         {
-            Console.WriteLine($"What will you do, Princess {princessName}?");
+            
             Console.WriteLine("1. Throw your crown");
             Console.WriteLine("2. Kick");
             Console.WriteLine("3. Punch");
             Console.WriteLine("4. Heal");
             Console.WriteLine("5. Stab");
-
-
+            Console.WriteLine($"What will you do?: ");
             string input = Console.ReadLine().ToLower();
 
             int princessdmg = 0;
