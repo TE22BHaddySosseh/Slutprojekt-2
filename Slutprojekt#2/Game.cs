@@ -217,11 +217,74 @@ namespace PrincessGame{
                     default:
                         Console.WriteLine("Idiot. You missed your chance to attack..! Whatever, you deal with the aftermath.");
                         break;
+                    }
 
+                dragonHP -= princessdmg;
+
+                if (dragonStunned){
                     dragonHP -= princessdmg;
-
-                    if 
+                    dragonStunned = false;
                 }
+
+                else{
+                    Random ddmg = new Random();
+                    dragondmg = ddmg.Next(10, 15);
+                    Console.WriteLine("The dragon attacks you without mercy. The hit lingers and aches as you prepare for your next attack.");
+                    Console.WriteLine($"The dragon did {dragondmg}!");
+                }
+
+                if (princessHP <= 0){
+                    Console.WriteLine($"Princess {princessName}.. has righteously fallen. This is your last chapter, I'm afraid.");
+                    Console.ReadLine();
+                }
+
+                else if (dragonHP <= 0){
+                    Pleas();
+                }
+
+                private static void Pleas(){
+
+                    Console.WriteLine("The dragon is critically injured, its roars quieting to pitiful whimpers. You can see in its eyes.. its pleading for mercy.");
+                    Console.WriteLine("1. Spare the dragon");
+                    Console.WriteLine("2. Kill the dragon");
+                    Console.WriteLine("What will you do?: ");
+                    string choice = Console.ReadLine();
+
+                    if (choice == "1"){
+
+                        if (princessHP <= 20){
+                            Console.WriteLine("The dragon, noticing your weak state, goes for one finishing blow as you lower your guard.");
+                            Console.WriteLine("It looks sorry for taking advantage of your kindness.. or, you hope it does.");
+                            Console.ReadLine();
+                        }
+
+                        else {
+                            Console.WriteLine("The dragons, eyes glimmer with gratitude, rising slowly to its feet but lowering its neck to your level.");
+                            Console.WriteLine("It seems to want to help you on your journey, and you happily accept! The two of your ride into the sunrise.");
+                            Console.ReadLine();
+                        }
+                    }
+
+                    else if (choice == "2"){
+                        Console.WriteLine("You mercilessly kill the dragon, walking off limping into the sunrise with your victory heavily on your shoulders.");
+                        Console.WriteLine("You hope whatever lays beyond is far easier than what you've been through.");
+                        Console.ReadLine();
+                    }
+
+                    else{
+                        Console.WriteLine("Oh ho ho, no. You're not avoiding this one!");
+
+                        Pleas();
+                    }
+
+
+
+                }
+                
+
+
+
+                
             }
         }
     }
