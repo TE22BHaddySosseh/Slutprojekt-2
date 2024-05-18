@@ -4,11 +4,14 @@ namespace PrincessGame
 {
     class Program
     {
-        gamerunning = true;
+        static void Main(string[] args){
+            gamerunning = true;
 
-        while (gamerunning)
-        {
-            gamerunning = GameMethods.StartGame();
+            while (gamerunning)
+            {
+                gamerunning = GameMethods();
+            }
         }
+        
     }
 }
