@@ -9,9 +9,8 @@ namespace PrincessGame{
         private static int dragonHP = 100;
         private static bool hasdagger = false;
         private static bool hasapples = false;
-        
 
-        private static void Intro(){
+        public static void Intro(){
             Console.WriteLine("In a cold and desolate stone tower, you reside, alone and shivering.");
             Console.WriteLine("You have no idea who brought you here, for what purpose, or even if you'll ever get out. All you known is that you're a princess.");
             Console.WriteLine(" Well, you assume so. Not many common folk proudly display a pure golden crown adorned with jewels atop their head. Not like you would know regardless.");
@@ -98,18 +97,17 @@ namespace PrincessGame{
                     Console.WriteLine($"Your frail body collapses to the floor after injuring yoruself to the farthest degree. This is your last chapter, Princess {princessName}");
                     Console.ReadLine();
                     return;
-                }
-
-                else{
-                    Console.WriteLine("You jump down safely depsite all odds.. hm, lucky you!");
-                }
+                }   
+                     
+                if (jumpchance <= 40){
+                Console.WriteLine("You jump down safely depsite all odds.. hm, lucky you!");
             }
-
+            }
+            
             else {
                 Console.WriteLine("Whatever, don't take this seriously then. I'll choose for you. You take the rope!");
             }
         }
-
 
         public static void PreFight() {
             Console.WriteLine("you reluctantly walk into the dark forest surrounding the tower. On your way, you find various apples hanging from tree, fresh, unplucked and glistening with magic.");
@@ -147,11 +145,13 @@ namespace PrincessGame{
         
         }
 
-        private static void Dragonfight(){
+        public static void Dragonfight(){
 
             Console.WriteLine("While walking in the forest, you notice a large shadow covering the moon sickly blue glow, followed by a roar.");
             Console.WriteLine("You look up to see a terrifying beast of a dragon, descending down to where you stood and blocking your path to what looked like civilization.");
             Console.WriteLine("The Dragon prepares itself to fight you, flapping its gorgeous wings with all its might. It seems to be waiting for you to strike first.");
+
+            bool dragonStunned = false;
 
             while (princessHP > 0 && dragonHP > 0)
             {
@@ -182,7 +182,7 @@ namespace PrincessGame{
                         Console.WriteLine("You throw your crown at the dragon's eyes, making it roar in pain. It's stunned!");
                         dragonStunned = true;
                         break;
-                        // i want this to stun the dragon but im not sure how yet
+                        
                     case "2":
                         Random kickdmg = new Random();
                         princessdmg = kickdmg.Next(5, 15);
@@ -217,7 +217,7 @@ namespace PrincessGame{
                     default:
                         Console.WriteLine("Idiot. You missed your chance to attack..! Whatever, you deal with the aftermath.");
                         break;
-                    }
+                }
 
                 dragonHP -= princessdmg;
 
@@ -229,6 +229,7 @@ namespace PrincessGame{
                 else{
                     Random ddmg = new Random();
                     dragondmg = ddmg.Next(10, 15);
+                    princessHP -= dragondmg;
                     Console.WriteLine("The dragon attacks you without mercy. The hit lingers and aches as you prepare for your next attack.");
                     Console.WriteLine($"The dragon did {dragondmg}!");
                 }
@@ -242,7 +243,7 @@ namespace PrincessGame{
                     Pleas();
                 }
 
-                private static void Pleas(){
+                static void Pleas(){
 
                     Console.WriteLine("The dragon is critically injured, its roars quieting to pitiful whimpers. You can see in its eyes.. its pleading for mercy.");
                     Console.WriteLine("1. Spare the dragon");
@@ -277,14 +278,23 @@ namespace PrincessGame{
                         Pleas();
                     }
 
-
-
                 }
-                
 
+                static void GameOver(){
 
+                    Console.WriteLine("Game Over! Would you like to play again? (y/n)");
+                    string choice = Console.ReadLine();
 
-                
+                    if  (choice == "y"){
+
+                        Console.Clear();
+                    }
+
+                    else{
+
+                        Environment.Exit(0);
+                    }
+                }
             }
         }
     }
