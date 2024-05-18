@@ -48,19 +48,18 @@ namespace PrincessGame{
         }
 
         private static void Breakdoor(){
-            princessHP -= 5;
+            princessHP -= 15;
             Console.WriteLine("You first notice the big metal door blocking your way down into the staircase of the tower.  Its large and imposing, making you feel like an ant compared to its great height and width.");
             Console.WriteLine("You run towards it at full speed, hoping it'll fall over from your mighty shove. Instead, you injure yourself.");
-            Console.WriteLine($"{princessName} takes 5 damage! HP: {princessHP}");
-
-            EscapeTower();
+            Console.WriteLine($"{princessName} takes 15 damage! HP: {princessHP}");
 
             if (princessHP <= 0){
-                Console.WriteLine($"Your frail body collapses to the floor after injuring yoruself to the farthest degree. This is your last chapter, Princess {princessName}");
+                Console.WriteLine($"Your frail body collapses to the floor after injuring yourself to the farthest degree. This is your last chapter, Princess {princessName}");
                 Console.ReadLine();
-                return;
+                Environment.Exit(0);
             }
-            
+
+            EscapeTower();    
         }
 
         private static void Window(){
@@ -89,19 +88,20 @@ namespace PrincessGame{
                 if (jumpchance <= 60){
                     int dmg = 30;
                     princessHP -= dmg;
-                    Console.WriteLine("Instead of taking the safe way down for whatever reeason, you leap down and land on your feet, injuring your ankles.");
+                    Console.WriteLine("Instead of taking the safe way down for whatever reason, you leap down and land on your feet, injuring your ankles.");
                     Console.WriteLine($"{princessName} takes 30 damage! HP: {princessHP}");
-                }
+                
 
-                if (princessHP <= 0){
-                    Console.WriteLine($"Your frail body collapses to the floor after injuring yoruself to the farthest degree. This is your last chapter, Princess {princessName}");
-                    Console.ReadLine();
-                    return;
-                }   
+                    if (princessHP <= 0){
+                        Console.WriteLine($"Your frail body collapses to the floor after injuring yoruself to the farthest degree. This is your last chapter, Princess {princessName}");
+                        Console.ReadLine();
+                        Environment.Exit(0);
+                    }  
+                } 
                      
-                if (jumpchance <= 40){
-                Console.WriteLine("You jump down safely depsite all odds.. hm, lucky you!");
-            }
+                else if (jumpchance > 60 && jumpchance <= 100){
+                    Console.WriteLine("You jump down safely depsite all odds.. hm, lucky you!");
+                }
             }
             
             else {
@@ -237,6 +237,7 @@ namespace PrincessGame{
                 if (princessHP <= 0){
                     Console.WriteLine($"Princess {princessName}.. has righteously fallen. This is your last chapter, I'm afraid.");
                     Console.ReadLine();
+                    Environment.Exit(0);
                 }
 
                 else if (dragonHP <= 0){
@@ -257,12 +258,14 @@ namespace PrincessGame{
                             Console.WriteLine("The dragon, noticing your weak state, goes for one finishing blow as you lower your guard.");
                             Console.WriteLine("It looks sorry for taking advantage of your kindness.. or, you hope it does.");
                             Console.ReadLine();
+                            Environment.Exit(0);
                         }
 
                         else {
                             Console.WriteLine("The dragons, eyes glimmer with gratitude, rising slowly to its feet but lowering its neck to your level.");
                             Console.WriteLine("It seems to want to help you on your journey, and you happily accept! The two of your ride into the sunrise.");
                             Console.ReadLine();
+                            Environment.Exit(0);
                         }
                     }
 
@@ -270,6 +273,7 @@ namespace PrincessGame{
                         Console.WriteLine("You mercilessly kill the dragon, walking off limping into the sunrise with your victory heavily on your shoulders.");
                         Console.WriteLine("You hope whatever lays beyond is far easier than what you've been through.");
                         Console.ReadLine();
+                        Environment.Exit(0);
                     }
 
                     else{
