@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\haddy.sosseh\\Documents\\PPG\\Slutprojekt#2\\Slutprojekt#2\\Slutprojekt#2.csproj": {}
+    "C:\\Users\\haddy.sosseh\\Documents\\PPG\\Slutprojekt#2\\Slutprojekt#2\\Slutprojekt#2.csproj": {}
   },
   "projects": {
-    "c:\\Users\\haddy.sosseh\\Documents\\PPG\\Slutprojekt#2\\Slutprojekt#2\\Slutprojekt#2.csproj": {
+    "C:\\Users\\haddy.sosseh\\Documents\\PPG\\Slutprojekt#2\\Slutprojekt#2\\Slutprojekt#2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\haddy.sosseh\\Documents\\PPG\\Slutprojekt#2\\Slutprojekt#2\\Slutprojekt#2.csproj",
+        "projectUniqueName": "C:\\Users\\haddy.sosseh\\Documents\\PPG\\Slutprojekt#2\\Slutprojekt#2\\Slutprojekt#2.csproj",
         "projectName": "Slutprojekt#2",
-        "projectPath": "c:\\Users\\haddy.sosseh\\Documents\\PPG\\Slutprojekt#2\\Slutprojekt#2\\Slutprojekt#2.csproj",
+        "projectPath": "C:\\Users\\haddy.sosseh\\Documents\\PPG\\Slutprojekt#2\\Slutprojekt#2\\Slutprojekt#2.csproj",
         "packagesPath": "C:\\Users\\haddy.sosseh\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\haddy.sosseh\\Documents\\PPG\\Slutprojekt#2\\Slutprojekt#2\\obj\\",
+        "outputPath": "C:\\Users\\haddy.sosseh\\Documents\\PPG\\Slutprojekt#2\\Slutprojekt#2\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
