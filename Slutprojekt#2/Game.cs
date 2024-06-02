@@ -10,6 +10,24 @@ namespace PrincessGame{
         private static bool hasdagger = false;
         private static bool hasapples = false;
 
+        //array för attacks
+        private static (string, int)[] dragonatks = new (string, int)[]
+        {
+            ("Slash", 20),
+            ("Breathe fire", 25),
+            ("Flap Wings", 10),
+            ("Stomp", 15),
+        };
+
+        //genererar en random attack
+        private static (string, int) randragonatks()
+        {
+            Random atk = new Random();
+            var attack = dragonatks[atk.Next(dragonatks.Length)];
+            return attack;
+
+        }
+
         public static void Intro(){
             Console.WriteLine("In a cold and desolate stone tower, you reside, alone and shivering.");
             Console.WriteLine("You have no idea who brought you here, for what purpose, or even if you'll ever get out. All you known is that you're a princess.");
@@ -173,7 +191,6 @@ namespace PrincessGame{
                 string input = Console.ReadLine().ToLower();
 
                 int princessdmg = 0;
-                int dragondmg = 0;
 
                 switch (input)
                 {
@@ -225,13 +242,12 @@ namespace PrincessGame{
                     dragonHP -= princessdmg;
                     dragonStunned = false;
                 }
-
+                //små ändringar här för arrayen
                 else{
-                    Random ddmg = new Random();
-                    dragondmg = ddmg.Next(10, 15);
-                    princessHP -= dragondmg;
-                    Console.WriteLine("The dragon attacks you without mercy. The hit lingers and aches as you prepare for your next attack.");
-                    Console.WriteLine($"The dragon did {dragondmg}!");
+                    var (atkname, atkdmg) = randragonatks();
+                    princessHP -= atkdmg;
+                    Console.WriteLine($"The dragon uses {atkname} and doesnt hold back. The hit lingers and aches as you prepare for your next attack.");
+                    Console.WriteLine($"The dragon did {atkdmg}!");
                 }
 
                 if (princessHP <= 0){
